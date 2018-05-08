@@ -42,6 +42,8 @@ async def background_task():
     """Example of how to send server generated events to clients."""
     #count = 0
     while True:
+        if manager_command is None:
+            return
         await sio.sleep(1)
         #count += 1
         await sio.emit('message', json_message_sensor())
@@ -49,7 +51,7 @@ async def background_task():
 
 def json_message_sensor():
     list_sensor = manager_command.sensor.get_info_sensor()
-    if list_sensor == None:
+    if list_sensor is None:
         return ""
     message = {'cmd': 'sensor.data', 'params': {'type': 'proximity-data', 'data':list_sensor}}# json.dumps(
     return message
