@@ -12,6 +12,13 @@ If you no use Windows, you must replace it.
 
 copy library from V-REP_PRO_EDU\programming\remoteApiBindings\lib\lib\OS to D:\3d\remoteAPIPython\vrep 
 
+
+Install "Setuptool" https://pypi.org/project/setuptools/:
+
+**python -m pip install --upgrade pip setuptools wheel**
+
+and then packages:
+
 **python setup.py install**
 
 ## Run
